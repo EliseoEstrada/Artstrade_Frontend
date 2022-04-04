@@ -1,12 +1,63 @@
 import React, { Component } from 'react'
-import { Collapse, DropdownItem, DropdownMenu, DropdownToggle, Nav, Navbar, NavbarBrand, NavbarText, NavbarToggler, NavItem, NavLink, UncontrolledDropdown } from 'reactstrap'
-import { Button_C } from '../buttons'
-import { Link} from 'react-router-dom';
+import { Button, Collapse, DropdownItem, DropdownMenu, DropdownToggle, Input, Nav, Navbar, NavbarBrand, NavbarText, NavbarToggler, NavItem, NavLink, UncontrolledDropdown } from 'reactstrap'
+import { Mod_SignUp } from '../modals/m_signup'
+import { Mod_Login } from '../modals/m_login'
+import Menu from './menu';
 
 
 
 
 
+export default class Navbar_P extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            identity: false,
+            status: false,
+            //type: TYPESHOW,
+            data: []
+        };
+    }
+
+    render() {
+
+        let identity = this.state.identity;
+
+        return (
+            <div>
+                <Navbar
+                    style={{ backgroundColor: "#111111" }}
+                    dark
+                    expand="lg"
+                    fixed=""
+                    full
+
+                >
+                    <NavbarBrand href="/">
+                        ARTSTRADE
+                    </NavbarBrand>
+
+                    <Input
+                        className='me-2 '
+                        bsSize="sm"
+                        type="search"
+                        placeholder=''
+
+                    />
+                    <Mod_SignUp/>
+
+                    <Mod_Login/>
+
+                </Navbar>
+                <Menu></Menu>
+            </div>
+        )
+    }
+}
+
+
+/*
 export default class Navbar_P extends Component {
     render() {
         return (
@@ -47,7 +98,7 @@ export default class Navbar_P extends Component {
                                 >
                                     Options
                                 </DropdownToggle>
-                                <DropdownMenu right>
+                                <DropdownMenu end>
                                     <DropdownItem>
                                         Option 1
                                     </DropdownItem>
@@ -73,3 +124,5 @@ export default class Navbar_P extends Component {
         )
     }
 }
+
+*/

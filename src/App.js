@@ -4,8 +4,8 @@ import './App.css';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 
 import Home from './pages/home';
-import Login from './pages/login';
-import Signup from './pages/signup';
+import Profile from './pages/profile';
+import Post from './pages/post';
 
 
 function App() {
@@ -14,8 +14,8 @@ function App() {
       <Router>
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
-          <Route exact path="/login" element={<Login />}></Route>
-          <Route exact path="/signup" element={<Signup />}></Route>
+          <Route exact path="/profile" element={<Profile />}></Route>
+          <Route exact path="/post" element={<Post />}></Route>
         </Routes>
       </Router>
     </div>
