@@ -1,24 +1,29 @@
 import React, { Component } from 'react'
-import { Button, Card, CardText, CardTitle, Col, Container, Nav, Navbar, NavItem, NavLink, Row } from 'reactstrap';
+import { Button, Card, CardHeader, CardText, CardTitle, Col, Container, Nav, Navbar, NavItem, NavLink, Row } from 'reactstrap';
 import Navbar_P from '../components/navbar';
 import Footer from '../components/footer/footer';
 import PostsList from '../components/posts/postsList';
 
 import avatar from '../assets/img/avatar.png'
 
+import FormContact from '../components/forms/formContact';
+
+import Option from '../components/menuProfile';
+import Blog from '../components/blog';
+
+
 class Profile extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            val: 'posts'
+            section: 'posts'
         }
 
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(ventana) {
-        this.setState({ val: ventana });
-        console.log(this.state.val)
+        this.setState({ section: ventana });
     }
 
     componentWillMount() {
@@ -50,6 +55,9 @@ class Profile extends Component {
     }
 
     render() {
+
+        let section = this.state.section;
+
         return (
             <div>
                 <Navbar_P />
@@ -57,16 +65,21 @@ class Profile extends Component {
                 <Card
                     body
                     className="text-center"
+                    style={{ backgroundColor: "#1C1C1C", color: "lightgray" }}
                 >
                     <div className='text-center mt-5'>
                         <img className='rounded-circle' height="150px" width="150px" src={avatar} />
                     </div>
 
+                    <CardHeader>
+                        <h3>Joseph Mancuso</h3>
+                                                
+                    </CardHeader>
                     <CardTitle tag="h2">
-                        Joseph Mancuso
+                        DIGITAL ILUSTRATOR / 2D ILUSTRATOR
                     </CardTitle>
                     <CardText>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque dapibus felis et libero scelerisque.
+                    Me dedico al mundo del 2d y de la ilustracion desde hace muchos años, espero que mis ilustraciones les gusten.
                     </CardText>
                     <Row>
                         <Col xs={6} className="text-end">
@@ -80,7 +93,7 @@ class Profile extends Component {
                     </Row>
                 </Card>
                 <Navbar
-                    color="dark"
+                    style={{ backgroundColor: "#0D0D0D" }} 
                     dark
                     expand="md"
                 >
@@ -90,48 +103,57 @@ class Profile extends Component {
                         navbar
                     >
 
-                        <NavItem>
-                            <NavLink onClick={() => this.handleChange('posts')} className='fw-bold'>
-                                ALL
-                            </NavLink>
+                        <NavItem className='d-flex align-items-center'>
+                            <Option onClick={() => this.handleChange('posts')}>ALL</Option>
                         </NavItem>
-                        <NavItem>
-                            <NavLink href="/components/" className='fw-bold'>
-                                SKETCH
-                            </NavLink>
+                        <NavItem className='d-flex align-items-center'>
+                            <Option onClick={() => this.handleChange('sketch')}>SKETCH</Option>
                         </NavItem>
-                        <NavItem>
-                            <NavLink href="/components/" className='fw-bold'>
-                                CONCEPT
-                            </NavLink>
+                        <NavItem className='d-flex align-items-center'>
+                            <Option onClick={() => this.handleChange('concept')}>CONCEPT</Option>
                         </NavItem>
-                        <NavItem>
-                            <NavLink href="/components/" className='fw-bold'>
-                                BLOG
-                            </NavLink>
+                        <NavItem className='d-flex align-items-center'>
+                            <Option onClick={() => this.handleChange('blog')}>BLOG</Option>
                         </NavItem>
-                        <NavItem>
-                            <NavLink onClick={() => this.handleChange('form')} className='fw-bold'>
-                                CONTACT
-                            </NavLink>
+                        <NavItem className='d-flex align-items-center'>
+                            <Option onClick={() => this.handleChange('form')}>CONTACT</Option>
+
                         </NavItem>
 
                     </Nav>
 
                 </Navbar>
 
+<div style={{ backgroundColor: "#1C1C1C" }} >
                 {
-                    this.state.val === 'posts' ? (
-                        <div className="mt-5 mb-5">
+                    section === 'posts' ? (
+                        <div >
+                            <h2 style={{ color:"gray"}}>ALL</h2>
                             <PostsList />
                         </div>
-                    ) : (
-                        <div>
-                            <h2>Formulario</h2>
+                    ) : section === 'sketch'? (
+                        <div >
+                            <h2 style={{ color:"gray"}}>SKETCH</h2>
+                            <PostsList/>
                         </div>
+                    ) : section === 'concept'? (
+                        <div >
+                            <h2 style={{ color:"gray"}}>CONCEPT</h2>
+                            <PostsList/>
+                        </div>
+                    ) : section === 'form'? (
+                        <div style={{ backgroundColor: "#1C1C1C", color:"gray" }}>
+                            <FormContact/>
+                        </div>
+                    ) : section === 'blog'? (
+                        <div style={{ backgroundColor: "#1C1C1C", color:"gray" }}>
+                            <Blog/>
+                        </div>
+                    ) : (
+                        <div></div>
                     )
                 }
-
+</div>
                 <Footer />
             </div>
 

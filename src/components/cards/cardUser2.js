@@ -36,9 +36,11 @@ export default class CardUser2 extends Component {
                     <CardText>
                         {description}
                     </CardText>
-                    <Button style={{ backgroundColor: "#1C1C1C", border: "#1C1C1C", color: "lightgray" }} >
+                    <a href="/profile" >
+                    <Button style={{ backgroundColor: "#1C1C1C", border: "#1C1C1C", color: "lightgray", textDecoration: "none"}} >
                         Ver Perfil
                     </Button>
+                    </a>
                 </CardBody>
             </Card>
         )

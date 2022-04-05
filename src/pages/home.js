@@ -9,6 +9,8 @@ import Carrousel from '../components/carrousel';
 import PostsList from '../components/posts/postsList';
 import CardArtistsList from '../components/cards/cardArtistsList'
 import CardArtistsList2 from '../components/cards/cardArtistsList2';
+import banner from '../assets/img/banner.png'
+import banner2 from '../assets/img/banner2.png'
 
 
 class Home extends Component {
@@ -86,18 +88,23 @@ class Home extends Component {
 
                 <Carrousel/>
 
-                <h1 className='text-white mt-3 mb-3'>Artistas populares</h1>
+                <h1 className='text-white mt-3 mb-3'>POPULAR POSTS</h1>
                 <CardArtistsList/>
 
 
-                <h1 className='text-white mt-3 mb-3'>Posts</h1>
+                <h1 className='text-white mt-3 mb-3'>NEW POSTS</h1>
                 <PostsList/>
 
-                <h1 className='text-white mt-3 mb-3'>post populares</h1>
+                <div className='text-center mt-5' style={{ backgroundColor: "#0C0C0C" }}>
+                        <img className='' height="10%" width="80%" src={banner} />
+                    </div>
+               
+
+                <h1 className='text-white mt-3 mb-3'>POPULAR ARTISTS</h1>
                 <CardArtistsList/>
 
 
-                <h1 className='text-white mt-3 mb-3'>Artistas de comisiones populares</h1>
+                <h1 className='text-white mt-3 mb-3'>POPULAR COMISION ARTISTS</h1>
 
                 <Row className='mb-5'>
                     <Col xs={12}>
@@ -105,7 +112,13 @@ class Home extends Component {
                     </Col>
                 </Row>
 
+
+                <h1 className='mt-3 mb-3' style={{ color: "lightgray" }}>POSTS</h1>
                 <PostsList/>
+
+                <div className='text-center mt-5' style={{ backgroundColor: "#0C0C0C" }}>
+                        <img className='' height="10%" width="80%" src={banner2} />
+                </div>
 
                 <Footer></Footer>
 

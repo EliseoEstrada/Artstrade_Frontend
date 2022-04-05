@@ -4,6 +4,8 @@ import { Mod_SignUp } from '../modals/m_signup'
 import { Mod_Login } from '../modals/m_login'
 import Menu from './menu';
 
+import { Mod_Post } from '../modals/publicar'
+import { Mod_EdPerfil } from '../modals/EditPerfil'
 
 
 
@@ -48,6 +50,37 @@ export default class Navbar_P extends Component {
                     <Mod_SignUp/>
 
                     <Mod_Login/>
+
+
+                    
+
+                    <UncontrolledDropdown
+          inNavbar
+          nav
+        >
+          <DropdownToggle
+            caret
+            nav
+            style={{color: "white"}}
+          >
+            Joseph Mancuso
+          </DropdownToggle>
+          <DropdownMenu right  style={{ backgroundColor: "#0B0B0B", border: "none" }}>
+            <DropdownItem style={{ color: "white"}} >
+             <a className='ms-1' href="/profile" style={{ color: "white", textDecoration: "none"}}> PROFILE</a>
+            </DropdownItem>
+            <DropdownItem >
+            <Mod_Post/>
+            </DropdownItem>
+            <DropdownItem>
+            <Mod_EdPerfil/>
+            </DropdownItem>
+            <DropdownItem divider />
+            <DropdownItem style={{ color: "gray"}} >
+              LOGOUT
+            </DropdownItem>
+          </DropdownMenu>
+        </UncontrolledDropdown>
 
                 </Navbar>
                 <Menu></Menu>

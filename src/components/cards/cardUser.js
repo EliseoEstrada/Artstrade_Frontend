@@ -10,6 +10,7 @@ export default class CardUser extends Component {
     render() {
         return (
             <Card inverse style={{border: 'none', backgroundColor: "#0E0E0E"  }}>
+                <a href="/post">
                 <CardImg
                     alt="Card image cap"
                     src="https://picsum.photos/318/270"
@@ -19,7 +20,7 @@ export default class CardUser extends Component {
 
                 />
                 <CardImgOverlay >
-                    <CardTitle tag="h5" style={{ backgroundColor: "#0B0B0B", opacity: ".8" }} >
+                    <CardTitle tag="h5" style={{ backgroundColor: "#0B0B0B", opacity: ".8", color:"white", textDecoration: "none"}} >
                         {this.props.user}
                     </CardTitle>
                     <CardText>
@@ -31,6 +32,7 @@ export default class CardUser extends Component {
                         </small>
                     </CardText>
                 </CardImgOverlay>
+                </a>
             </Card>
         )
     }
